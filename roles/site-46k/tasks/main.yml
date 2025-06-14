@@ -17,6 +17,16 @@
         path: /var/www/client
         state: directory
         mode: 0777
+
+
+#---------------------------------------------------------
+    # - name: Create a directory if it does not exist
+    #   file:
+    #     path: /var/www/client/backfromgithub
+    #     state: directory
+    #     mode: 0777
+
+
 #---------------------------------------------------------
     - name: Installing git
       package:
