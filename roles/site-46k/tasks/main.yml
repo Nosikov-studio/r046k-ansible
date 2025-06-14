@@ -20,14 +20,6 @@
 
 
 #---------------------------------------------------------
-    # - name: Create a directory if it does not exist
-    #   file:
-    #     path: /var/www/client/backfromgithub
-    #     state: directory
-    #     mode: 0777
-
-
-#---------------------------------------------------------
     - name: Installing git
       package:
         name: git
@@ -52,7 +44,7 @@
     - name: Copy files from github
       git:
         repo: git@github.com:Nosikov-studio/r045k-angular.git
-        dest: /var/www/client/
+        dest: /var/www/client/inst/
         key_file: /root/www/.ssh/id_ed25519
         accept_hostkey: yes
         force: yes  
@@ -60,6 +52,18 @@
         recursive: yes
         clone: yes
         update: yes
+#------------------------------------------------------------------
+
+#---------------------------------------------------------
+
+    - name: Copy 
+      copy:
+        src: /var/www/client/inst/public
+        dest: /etc/var/www/client/
+        remote_src: yes
+        mode: 0777
+#-----------------------------------------------------------
+
 
 
     - name: Recursively remove directory
