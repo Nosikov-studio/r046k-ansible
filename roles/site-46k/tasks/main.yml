@@ -59,7 +59,7 @@
     - name: Copy 
       copy:
         src: /var/www/client/inst/public
-        dest: /etc/var/www/client/
+        dest: /var/www/client/
         remote_src: yes
         mode: 0777
 #-----------------------------------------------------------
